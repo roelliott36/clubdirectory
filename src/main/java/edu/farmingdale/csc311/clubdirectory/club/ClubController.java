@@ -1,4 +1,4 @@
-package edu.farmingdale.csc311.clubdirectory;
+package edu.farmingdale.csc311.clubdirectory.club;
 
 public class ClubController {
 

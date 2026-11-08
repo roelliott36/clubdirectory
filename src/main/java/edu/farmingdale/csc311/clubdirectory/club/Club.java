@@ -1,6 +1,6 @@
-package edu.farmingdale.csc311.clubdirectory;
+package edu.farmingdale.csc311.clubdirectory.club;
 
-public class club {
+public class Club {
 
     /*
         === specifications/guidelines ==
