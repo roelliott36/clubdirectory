@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    async function loadClubs() {
+
+        const clubs = await fetch("/api/clubs").then(r => r.json());
+
+        const list = document.getElementById("clubs");
+
+        list.innerHTML = "";
+
+        for (const club of clubs) {
+
+            const li = document.createElement("li");
+
+            li.textContent = club.name + " – " + club.category + ", " + club.meetingDay
+
+                + (club.room ? ", " + club.room : "");
+
+            list.appendChild(li);
+
+        }
+
+    }
+
+
+
+    document.getElementById("clubForm").addEventListener("submit", async event => {
+
+        event.preventDefault();
+
+        const club = {
+
+            name: document.getElementById("name").value,
+
+            category: document.getElementById("category").value,
+
+            meetingDay: document.getElementById("meetingDay").value,
+
+            room: document.getElementById("room").value
+
+        };
+
+        const response = await fetch("/api/clubs", {
+
+            method: "POST",
+
+            headers: { "Content-Type": "application/json" },
+
+            body: JSON.stringify(club)
+
+        });
+
+        if (response.ok) {
+
+            event.target.reset();
+
+            document.getElementById("message").textContent = "";
+
+            loadClubs();
+
+        } else {
+
+            document.getElementById("message").textContent =
+
+                "Please fill in name, category and meeting day.";
+
+        }
+
+    });
+
+
+
+    loadClubs();
+
+</script>
