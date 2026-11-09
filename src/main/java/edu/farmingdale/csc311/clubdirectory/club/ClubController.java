@@ -34,4 +34,15 @@ public class ClubController {
         return clubRepository.findAll();
     }
 
+
+    @GetMapping("/{id}")
+    public Club findById(@PathVariable Long id) {
+        return clubRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND,
+                        "No club with id " + id
+                ));
+    }
+
+
 }
