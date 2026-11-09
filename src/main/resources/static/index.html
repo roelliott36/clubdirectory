@@ -1,13 +1,36 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Lab</title>
+    <title>Campus Club Directory</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-</body>
-</html>
+<h1>Campus Club Directory</h1>
+
+<ul id="clubs"></ul>
+
+<h2>Add a club</h2>
+
+<form id="clubForm">
+
+    <input type="text" id="name" placeholder="Club name" required maxlength="60">
+
+    <input type="text" id="category" placeholder="Category" required maxlength="30">
+
+    <input type="text" id="meetingDay" placeholder="Meeting day" required maxlength="20">
+
+    <input type="text" id="room" placeholder="Room (optional)" maxlength="40">
+
+    <button type="submit">Add club</button>
+
+</form>
+
+<p id="message"></p>
+
 <script>
 
     async function loadClubs() {
@@ -23,7 +46,6 @@
             const li = document.createElement("li");
 
             li.textContent = club.name + " – " + club.category + ", " + club.meetingDay
-
                 + (club.room ? ", " + club.room : "");
 
             list.appendChild(li);
@@ -32,32 +54,21 @@
 
     }
 
-
-
     document.getElementById("clubForm").addEventListener("submit", async event => {
 
         event.preventDefault();
 
         const club = {
-
             name: document.getElementById("name").value,
-
             category: document.getElementById("category").value,
-
             meetingDay: document.getElementById("meetingDay").value,
-
             room: document.getElementById("room").value
-
         };
 
         const response = await fetch("/api/clubs", {
-
             method: "POST",
-
             headers: { "Content-Type": "application/json" },
-
             body: JSON.stringify(club)
-
         });
 
         if (response.ok) {
@@ -71,15 +82,15 @@
         } else {
 
             document.getElementById("message").textContent =
-
                 "Please fill in name, category and meeting day.";
 
         }
 
     });
 
-
-
     loadClubs();
 
 </script>
+
+</body>
+</html>

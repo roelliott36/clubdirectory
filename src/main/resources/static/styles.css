@@ -1,0 +1,44 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 15px;
+    background-color: white;
+    color: black;
+    font-size: 12px;
+}
+
+h1 {
+    color: green;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+ul {
+    padding-left: 22px;
+}
+
+li {
+    margin-bottom: 3px;
+}
+
+input {
+    display: block;
+    width: 100px;
+    margin-bottom: 8px;
+    font-size: 10px;
+    padding: 1px;
+}
+
+button {
+    font-size: 10px;
+    padding: 2px 5px;
+}
+
+#message {
+    color: red;
+}
