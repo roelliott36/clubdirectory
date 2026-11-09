@@ -22,6 +22,8 @@ public class Club {
     8. A protected constructor with no parameters (JPA needs it), and a public constructor that takes name, category, meetingDay and room.
     9. A getter for every field, and a setter for every field except id.
 
+        === DONE ===
+
      */
 
     @Id
