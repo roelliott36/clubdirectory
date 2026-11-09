@@ -1,7 +1,11 @@
 package edu.farmingdale.csc311.clubdirectory.club;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/clubs")
@@ -14,5 +18,20 @@ public class ClubController {
     3. It has the three methods in the table below.
 
      */
+
+    private final ClubRepository clubRepository;
+
+    public ClubController(ClubRepository clubRepository) {
+        this.clubRepository = clubRepository;
+    }
+
+    @GetMapping
+    public List<Club> findAll(@RequestParam(required = false) String category) {
+        if (category != null && !category.isBlank()) {
+            return clubRepository.findByCategoryIgnoreCase(category);
+        }
+
+        return clubRepository.findAll();
+    }
 
 }
