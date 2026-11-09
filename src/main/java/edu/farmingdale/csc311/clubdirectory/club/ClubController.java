@@ -1,5 +1,10 @@
 package edu.farmingdale.csc311.clubdirectory.club;
 
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/api/clubs")
 public class ClubController {
 
     /*
