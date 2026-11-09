@@ -26,7 +26,7 @@ public class Club {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @NotBlank(message = "Name is required.")
     @Size(min = 1, max = 60)
@@ -40,10 +40,10 @@ public class Club {
     @Size(min = 1, max = 20)
     private String meetingDay;
 
-    @Size(min = 1, max = 40)
+    @Size(min = 0, max = 40)
     private String room;
 
-    protected Club() {};
+    protected Club() {}
 
     public Club(String name, String category, String meetingDay, String room) {
         this.name = name;
