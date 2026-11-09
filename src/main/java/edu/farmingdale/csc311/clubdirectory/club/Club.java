@@ -1,5 +1,13 @@
 package edu.farmingdale.csc311.clubdirectory.club;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
+@Entity
 public class Club {
 
     /*
@@ -15,5 +23,33 @@ public class Club {
     9. A getter for every field, and a setter for every field except id.
 
      */
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @NotBlank(message = "Name is required.")
+    @Size(min = 1, max = 60)
+    private String name;
+
+    @NotBlank(message = "Category is required.")
+    @Size(min = 1, max = 30)
+    private String category;
+
+    @NotBlank(message = "Meeting Day is required.")
+    @Size(min = 1, max = 20)
+    private String meetingDay;
+
+    @Size(min = 1, max = 40)
+    private String room;
+
+    protected Club() {};
+
+    public Club(String name, String category, String meetingDay, String room) {
+        this.name = name;
+        this.category = category;
+        this.meetingDay = meetingDay;
+        this.room = room;
+    }
 
 }
