@@ -52,4 +52,40 @@ public class Club {
         this.room = room;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public String getMeetingDay() {
+        return meetingDay;
+    }
+
+    public String getRoom() {
+        return room;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public void setMeetingDay(String meetingDay) {
+        this.meetingDay = meetingDay;
+    }
+
+    public void setRoom(String room) {
+        this.room = room;
+    }
+
 }
