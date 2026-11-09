@@ -44,5 +44,17 @@ public class ClubController {
                 ));
     }
 
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Club createClub(@Valid @RequestBody Club club) {
+        Club newClub = new Club(
+                club.getName(),
+                club.getCategory(),
+                club.getMeetingDay(),
+                club.getRoom()
+        );
+
+        return clubRepository.save(newClub);
+    }
 
 }
